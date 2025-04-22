@@ -12,7 +12,7 @@
 </div>
 
 ## ☕ Introdução
-O projeto "Simulação de Propagação de Incêndios" foi proposto como o trabalho de aquecimento da disciplina de Algoritmo e Estrutura de Dados (AEDS) pelo Prof. Mestre Michel Pires Da Silva. Tal atividade propôs a criação de um código (em C ou C++) que pudesse implementar tal simulação e também exigiu uma documentação detalhada sobre o algoritmo. Ademais, o código consiste em um simulador que propaga um incêndio em uma floresta (representada por uma matriz), na qual há um animal que deve se mover por ela. Além disso, cada célula da matriz tem sua devida representação, sendo 0: Área vazia, 1: Árvore saudável, 2: Árvore em chamas, 3: Árvore queimada e 4: Água.
+O projeto "Simulação de Propagação de Incêndios" foi proposto como o trabalho de aquecimento da disciplina de Algoritmo e Estrutura de Dados (AEDS) pelo Prof. Mestre Michel Pires Da Silva. Tal atividade propõe a criação de um código, em C ou C++, que pudesse implementar essa simulação e também exigiu uma documentação detalhada sobre o algoritmo. Ademais, o código consiste em um simulador que propaga um incêndio em uma floresta, representada por uma matriz, na qual há um animal que deve se mover por ela. Além disso, cada célula da matriz tem sua devida representação, sendo 0: Área vazia, 1: Árvore saudável, 2: Árvore em chamas, 3: Árvore queimada e 4: Água.
 
 ## 🎯 Objetivos
 O objetivo principal consiste em modelar a propagação do fogo em uma matriz, o qual pode evoluir ao longo da execução, conforme as interações de propagação de incêndio. A implementação deverá permitir a utilização de diferentes estratégias computacionais para a propagação do fogo, proporcionando uma análise comparativa do desempenho e da eficiência do código.
@@ -165,6 +165,29 @@ AEDS/
         return;
     }
     ```
+    - `addModulo (Tipo: void, Parâmetros: int linha, int coluna, char modulo)`  
+    Essa função tem como objetivo adicionar os módulos na matriz.
+
+    ```cpp
+    void Matriz::addModulo(int linha, int coluna, char modulo){
+        if(modulo == '0'){
+            matriz[linha][coluna] = new ModuloAreaVazia(modulo);
+        } 
+        else if(modulo == '1'){
+            matriz[linha][coluna] = new ModuloArvoreSaudavel(modulo);
+        }
+        else if(modulo == '2'){
+            matriz[linha][coluna] = new ModuloArvoreFogo(modulo);
+        }
+        else if(modulo == '3'){
+            matriz[linha][coluna] = new ModuloArvoreQueimada(modulo);
+        }
+        else{
+            matriz[linha][coluna] = new ModuloAgua(modulo);
+        }
+    }
+    ```
+
     - `imprimirMatriz (Tipo: void)`  
     Essa função tem como objetivo imprimir a matriz a cada iteração.
 
@@ -393,7 +416,7 @@ AEDS/
     ```
     
     - `viraFogo (Tipo: void, Parâmetros: std::vector<std::pair<int, int>> arvoresFogo, bool todos, bool norte, bool leste, bool sul, bool oeste)`  
-    Essa função tem como objetivo propagar o fogo pela matriz.
+    Essa função tem como objetivo propagar o fogo para as células ortogonalmente adjacentes de determinada célula.
 
     ```cpp
     void Incendio::viraFogo(std::vector<std::pair<int, int>> arvoresFogo, bool todos, bool norte, bool leste, bool sul, bool oeste){
@@ -424,7 +447,7 @@ AEDS/
     ```
 
     - `espalharFogo (Tipo: void, Parâmetros: Config config)`  
-    Essa função tem como objetivo desenvolver a simulação.
+    Essa função tem como objetivo desenvolver a simulação do incêndio.
 
     ```cpp
     void Incendio::espalharFogo(Config config){
@@ -478,7 +501,7 @@ AEDS/
     ```
 
     - `iniciarJogo (Tipo: void)`  
-    Essa função tem como objetivo movimentar o animal pela matriz.
+    Essa função tem como objetivo decidir a movimentação que será feita pelo animal na matriz.
 
     ```cpp
     void Animal::iniciarJogo(){ 
@@ -605,7 +628,7 @@ AEDS/
     ```
 
     - `buscarVazioArvoreSaudavel (Tipo: bool)`  
-    Essa função tem como objetivo movimentar o animal até uma célula com ávore saudável ou até uma área vázia.
+    Essa função tem como objetivo movimentar o animal até uma célula de área vázia ou com ávore saudável.
 
     ```cpp
     bool Animal::buscarVazioArvoreSaudavel(){
@@ -799,7 +822,7 @@ AEDS/
     ```
 
     - `jogaUmidade (Tipo: void, Parâmetros: int linha, int coluna)`  
-    Ao animal encontrar um ponto d'água, essa função torna as células ortogonalmente adjacentes em 1.
+    Ao animal encontrar um ponto d'água, essa função torna as células ortogonalmente adjacentes a esse ponto em 1.
 
     ```cpp
     void Animal::jogaUmidade(int linha, int coluna){
@@ -823,7 +846,7 @@ AEDS/
     ```
 
     - `estaPreso (Tipo: bool, Parâmetros: int linha, int coluna)`  
-    Essa função tem como objetivo verificar se o animal se encontra rodeado de árvores em chamas.
+    Essa função tem como objetivo verificar se o animal se encontra rodeado por árvores em chamas.
 
     ```cpp
     bool Animal::estaPreso(int linha, int coluna){
@@ -897,12 +920,12 @@ make run
 ```
 
 ## 🔚 Conclusão 
-Em suma, é possível concluir que o algoritmo aplicado (BFS) não é o melhor a ser utilizado em prol da sobrevivência do animal, por mais que ele permita encontrar os destinos viáveis mais pertos, não necessariamente para tal ocasião ele será o ponto mais eficiente para manter o animal vivo. Logo, para futuras melhorias, seria interessante aplicar outro algoritmo visando uma maior eficiência na sobrevivência do animal. Além disso, esse projeto pode ser aplicado para desafiar alunos da área da programação a fim de transmitir aprendizados a cerca desses tópicos: capacidade de manipulação de ponteiros, matrizes, vetores, algoritmos de busca em C/C++,  etc.
+Em suma, é possível concluir que o algoritmo aplicado (BFS) não é o melhor a ser utilizado em prol da sobrevivência do animal, por mais que ele permita encontrar os destinos viáveis mais pertos, não necessariamente para tal ocasião ele será o ponto mais eficiente para manter o animal vivo. Logo, para futuras melhorias, seria interessante aplicar outro algoritmo visando uma maior eficiência na sobrevivência do animal. Além disso, esse projeto pode ser aplicado para desafiar alunos da área da programação a fim de transmitir aprendizados a cerca desses tópicos: capacidade de manipulação de ponteiros, matrizes, vetores, algoritmos de busca em C/C++, etc.
 
 [Descreva os resultados obtidos, aplicações do projeto, aprendizados adquiridos, e sugestões de melhorias.]
 
 ## 💭 Créditos
-Agradeço o professor Michel Pires Silva por fornecer o Makefile que facilitou na execução e compilação do trabalho. Além disso agradeço os monitores Matheus e João que me ajudaram em meu trabalho durante as monitorias.
+Agradeço o professor Michel Pires Silva por fornecer o Makefile que facilitou na execução e compilação do trabalho. Além disso, agradeço os monitores Matheus e João que ajudaram no trabalho durante as monitorias.
 
 ## 📪 Contato
 - Email: [siratutifernando@gmail.com]
