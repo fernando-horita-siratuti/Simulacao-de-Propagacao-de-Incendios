@@ -272,6 +272,7 @@ void Animal::jogaUmidade(int linha, int coluna){
         mapa[linha][coluna - 1]->setTipo('1');
     }
 }
+
 bool Animal::estaPreso(int linha, int coluna){
     auto mapa = matriz.getMatriz();
     int linhas = matriz.getLinhas();
