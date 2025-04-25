@@ -82,6 +82,7 @@ void Matriz::imprimirMatriz(){
                         }
                     }
                 }
+                saida << matriz[i][j]->getTipo() << " ";
             }
             else{
                 saida << matriz[i][j]->getTipo() << " ";
