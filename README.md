@@ -1,5 +1,5 @@
 
-# 📄 README - PROJETO DE SIMLUAÇÃO DE PROPAGAÇÃO DE INCÊNCIOS
+# 📄 README - PROJETO DE SIMULAÇÃO DE PROPAGAÇÃO DE INCÊNDIOS
 
 <div align="center">
     <img src="thisIsFine.jpg" width="200" height="200">
