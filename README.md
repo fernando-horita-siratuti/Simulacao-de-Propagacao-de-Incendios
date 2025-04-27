@@ -410,6 +410,21 @@ make
 make run
 ```
 
+## 📚 Referências
+
+Este projeto faz uso extensivo das bibliotecas padrão da linguagem C++, como `<vector>`, `<queue>`, `<string>`, `<sstream>`, `<iostream>`, `<fstream>`, `<cctype>` e `<algorithm>`, que oferecem funcionalidades essenciais para:
+- Manipulação de dados
+- Filas
+- Strings
+- Fluxos de entrada/saída
+- Leitura de arquivos
+- Operações com caracteres
+- Algoritmos de ordenação e busca
+
+Todas essas bibliotecas são parte integrante da [Standard Library do C++](https://en.cppreference.com/w/cpp).
+
+Além disso, foi utilizado a biblioteca `<stdlib.h>` para funções auxiliares de controle de execução do programa.
+
 ## 🔚 Conclusão 
 Em suma, é possível concluir que o algoritmo aplicado (BFS) não é o melhor a ser utilizado em prol da sobrevivência do animal, por mais que ele permita encontrar os destinos viáveis mais próximos, não necessariamente para tal ocasião ele será a célula mais eficiente para manter o animal vivo. Logo, para futuras melhorias, seria interessante aplicar outro algoritmo visando uma maior eficiência na sobrevivência do animal. Além disso, é notoório que esse projeto pode ser aplicado para desafiar alunos da área da programação a fim de transmitir aprendizados a cerca de alguns tópicos, como: capacidade de manipulação de ponteiros, matrizes, vetores, algoritmos de busca em C/C++, etc. Dessa maneira, durante o decorrer do projeto foi possível notar alguns aprendizados adquiridos/reforçados, como: organização em porgramação orientada a objetos (POO), incluindo encapsulamento, herança e polimorfismo; lógica algorítmica, por meio da implementação de algoritmos de busca e simulação de propagação de eventos; manipulação de estruturas de dados (vector, queue, pair) etc.
 
